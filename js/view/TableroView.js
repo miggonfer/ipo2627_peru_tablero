@@ -1,12 +1,14 @@
 // VISTA: lee y escribe el DOM. No contiene reglas del juego.
 // Los elementos se localizan con atributos data-* (data-tablero, data-celda, ...).
 
+import { FORMAS } from '../model/Configuracion.js';
+
 const NOMBRES_FORMA = {
   circulo: 'círculo', cuadrado: 'cuadrado', triangulo: 'triángulo',
   rombo: 'rombo', hexagono: 'hexágono', estrella: 'estrella'
 };
 
-class TableroView {
+export class TableroView {
   constructor(raiz) {
     this.raiz = raiz;
     this.tablero = raiz.querySelector('[data-tablero]');

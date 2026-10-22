@@ -57,3 +57,46 @@ La implementación de la interacción estará guiada para favorecer la usabilida
   - diseño tipográfico: dos fuentes contrastadas, una única fuente con niveles distintos de realce, etc.
   - diseño espacial: selección de unidades de medida y contenedores, principios de diseño `Gestalt`, etc. 
 
+
+
+# Organización del proyecto
+
+Se mantiene **una sola aplicación**, con punto de entrada en `index.html` y
+separación mediante el patrón MVC. No se necesitan dependencias ni frameworks.
+
+```text
+ipo2627_peru_tablero/
+├── index.html                 # Estructura semántica de la aplicación
+├── README.md                  # Enunciado, estructura y ejecución
+├── css/
+│   ├── base.css               # Colores, tipografía y estilos base
+│   ├── layout.css             # Distribución Flexbox/Grid
+│   └── components.css         # Tablero, fichas, formulario y diálogo
+└── js/
+    ├── main.js               # Inicio de la aplicación
+    ├── model/
+    │   ├── Configuracion.js   # Reglas de configuración
+    │   └── Tablero.js         # Datos y reglas del juego
+    ├── view/
+    │   └── TableroView.js     # Interfaz y eventos del DOM
+    └── controller/
+        └── JuegoController.js # Coordina vista y modelo
+```
+
+## Ejecutar la aplicación
+
+1. Abrir esta carpeta en Visual Studio Code.
+2. Iniciar **Live Server** sobre `index.html` o abrir una terminal en esta
+   carpeta y ejecutar `python -m http.server 8000`.
+3. Si se usa Python, visitar `http://localhost:8000/` en el navegador.
+
+**Nota:** los módulos JavaScript deben servirse a través de HTTP. No abrir
+`index.html` directamente mediante `file://`.
+
+## Qué se conserva y qué se elimina
+
+Esta versión incluye solo los archivos empleados por la aplicación. No se
+incluye la versión antigua `tablero.html` ni el directorio `.git` (historial y
+metadatos de Git). El ZIP está pensado como copia limpia del código fuente;
+para seguir trabajando con el repositorio Git original, copiar sus archivos
+a la carpeta de trabajo existente sin borrar su `.git`.
